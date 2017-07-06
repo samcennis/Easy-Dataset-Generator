@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0" />
+    <title>Easy Data Generator</title>
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <link href="static/css/style.css" type="text/css" rel="stylesheet" media="screen,projection" /> </head>
+
+<body>
+    <nav class="light-blue lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Star Schema Generator</a> </div>
+    </nav>
+    <div class="section no-pad-bot" id="index-banner">
+        <div class="container">
+            <br>
+            <br>
+            <h1 class="header center orange-text">Dataset Generator for Demos</h1>
+            <div class="row center">
+                <h5 class="header col s12 light">Generate a custom and realistic sales dataset to make your demos more client-centric. The dataset includes a sales fact table with product, store, promotion, and time dimensions. Downloads easily as a CSV file.</h5> </div>
+            <br>
+            <br> </div>
+    </div>
+    <div class="container">
+        <div id="date_section" class="section">
+            <blockquote>
+                <h4>Date Dimension</h4>
+                <p>Select the start and end dates for your dataset, as well as relative quarterly performance.</p>
+            </blockquote>
+            <div id="date_header_row" class="row">
+                <div class="col s6">
+                    <h6>Start Date</h6></div>
+                <div class="col s6">
+                    <h6>End Date</h6></div>
+            </div>
+            <form>
+                <div id="date_row" class="row">
+                    <div class="input-field col s6">
+                        <select id="start_date">
+                            <option selected value="20140101">2014 Q1</option>
+                            <option value="20140401">2014 Q2</option>
+                            <option value="20140701">2014 Q3</option>
+                            <option value="20141001">2014 Q4</option>
+                            <option value="20150101">2015 Q1</option>
+                            <option value="20150401">2015 Q2</option>
+                            <option value="20150701">2015 Q3</option>
+                            <option value="20151001">2015 Q4</option>
+                            <option value="20160101">2016 Q1</option>
+                            <option value="20160401">2016 Q2</option>
+                            <option value="20160701">2016 Q3</option>
+                            <option value="20161001">2016 Q4</option>
+                            <option value="20170101">2017 Q1</option>
+                            <option value="20170401">2017 Q2</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s6">
+                        <select id="end_date">
+                            <option selected value="20140101">2014 Q1</option>
+                            <option value="20140401">2014 Q2</option>
+                            <option value="20140701">2014 Q3</option>
+                            <option value="20141001">2014 Q4</option>
+                            <option value="20150101">2015 Q1</option>
+                            <option value="20150401">2015 Q2</option>
+                            <option value="20150701">2015 Q3</option>
+                            <option value="20151001">2015 Q4</option>
+                            <option value="20160101">2016 Q1</option>
+                            <option value="20160401">2016 Q2</option>
+                            <option value="20160701">2016 Q3</option>
+                            <option value="20161001">2016 Q4</option>
+                            <option value="20170101">2017 Q1</option>
+                            <option selected value="20170401">2017 Q2</option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+            <div id="date_performance_header_row" class="row">
+                <div class="col s4">
+                    <h6>Year</h6> </div>
+                <div class="col s2">
+                    <h6>Q1</h6> </div>
+                <div class="col s2">
+                    <h6>Q2</h6> </div>
+                <div class="col s2">
+                    <h6>Q3</h6> </div>
+                <div class="col s2">
+                    <h6>Q4</h6> </div>
+            </div>
+            <form id="date_performance_rows">
+                <div id="2014_date_performance_row" class="row">
+                    <div class="col s4">
+                        <h6>2014</h6> </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2014_Q1" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2014_Q2" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2014_Q3" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2014_Q4" min="0" max="100" /> </p>
+                    </div>
+                </div>
+                <div id="2015_date_performance_row" class="row">
+                    <div class="col s4">
+                        <h6>2015</h6> </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2015_Q1" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2015_Q2" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2015_Q3" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2015_Q4" min="0" max="100" /> </p>
+                    </div>
+                </div>
+                <div id="2016_date_performance_row" class="row">
+                    <div class="col s4">
+                        <h6>2016</h6> </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2016_Q1" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2016_Q2" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2016_Q3" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2016_Q4" min="0" max="100" /> </p>
+                    </div>
+                </div>
+                <div id="2017_date_performance_row" class="row">
+                    <div class="col s4">
+                        <h6>2017</h6> </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2017_Q1" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2017_Q2" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2017_Q3" min="0" max="100" /> </p>
+                    </div>
+                    <div class="col s2">
+                        <p class="range-field">
+                            <input type="range" id="performance_2017_Q4" min="0" max="100" /> </p>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <br> </div>
+        <div id="product_section" class="section">
+            <blockquote>
+                <h4>Product Dimension</h4>
+                <p>Enter information about all of the products that you would like to appear in the dataset. Enter the name and category of each product, as well as how well you would like each one to sell relative to the other products. You will be able to make finer performance adjustments based on the other dimensions (i.e., performance over time, by store, by promotion) below.</p>
+            </blockquote>
+            <div id="product_header_row" class="row">
+                <div class="col s1">
+                    <h6>Key</h6></div>
+                <div class="col s3">
+                    <h6>Name</h6></div>
+                <div class="col s2">
+                    <h6>Category</h6></div>
+                <div class="col s1">
+                    <h6>Price ($)</h6></div>
+                <div class="col s1">
+                    <h6>Typical Quantity Bought</h6></div>
+                <div class="col s1">
+                    <h6>&plusmn;</h6></div>
+                <div class="col s3">
+                    <h6>Relative Performance</h6></div>
+            </div>
+            <form id="product_rows">
+                <div id="1001_product_row" class="row">
+                    <div class="input-field col s1">
+                        <input disabled value="1001" id="1001_product_key" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <input value="Cherry Coke" id="1001_product_name" type="text" class="validate"> </div>
+                    <div class="input-field col s2">
+                        <input value="Soft Drink" id="1001_product_category" type="text" class="validate"> </div>
+                    <div class="input-field col s1">
+                        <input value="1.99" step="0.01" id="1001_product_price" type="number" class="validate" min="0"> </div>
+                    <div class="input-field col s1">
+                        <input value="2" id="1001_product_quantity" type="number" class="validate" min="1"> </div>
+                    <div class="input-field col s1">
+                        <input value="1" id="1001_product_range" type="number" class="validate" min="1"> </div>
+                    <div class="input-field col s3">
+                        <p class="range-field">
+                            <input type="range" id="1001_product_performance" min="0" max="100" /> </p>
+                    </div>
+                </div>
+                <div id="1002_product_row" class="row">
+                    <div class="input-field col s1">
+                        <input disabled value="1002" id="1001_product_key" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <input value="Pepsi Max" id="1002_product_name" type="text" class="validate"> </div>
+                    <div class="input-field col s2">
+                        <input value="Soft Drink" id="1002_product_category" type="text" class="validate"> </div>
+                    <div class="input-field col s1">
+                        <input value="2.50" step="0.01" id="1002_product_price" type="number" class="validate" min="0"> </div>
+                    <div class="input-field col s1">
+                        <input value="2" id="1002_product_quantity" type="number" class="validate" min="1"> </div>
+                    <div class="input-field col s1">
+                        <input value="1" id="1002_product_range" type="number" class="validate" min="1"> </div>
+                    <div class="input-field col s3">
+                        <p class="range-field">
+                            <input type="range" id="1002_product_performance" min="0" max="100" /> </p>
+                    </div>
+                </div>
+                <div id="1003_product_row" class="row">
+                    <div class="input-field col s1">
+                        <input disabled value="1003" id="1003_product_key" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <input value="Hamburger" id="1003_product_name" type="text" class="validate"> </div>
+                    <div class="input-field col s2">
+                        <input value="Food" id="1003_product_category" type="text" class="validate"> </div>
+                    <div class="input-field col s1">
+                        <input value="6.50" step="0.01" id="1003_product_price" type="number" class="validate" min="0"> </div>
+                    <div class="input-field col s1">
+                        <input value="2" id="1003_product_quantity" type="number" class="validate" min="1"> </div>
+                    <div class="input-field col s1">
+                        <input value="1" id="1003_product_range" type="number" class="validate" min="1"> </div>
+                    <div class="input-field col s3">
+                        <p class="range-field">
+                            <input type="range" id="1003_product_performance" min="0" max="100" /> </p>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <br> </div>
+        <div id="store_section" class="section">
+            <blockquote>
+                <h4>Store Dimension</h4>
+                <p>Enter information about all of the stores that you would like to appear in the dataset. Enter the name and location of each store, as well as how well you would like each one to sell relative to the other stores. You will be able to make finer performance adjustments based on the other dimensions below.</p>
+            </blockquote>
+            <div id="store_header_row" class="row">
+                <div class="col s1">
+                    <h6>Key</h6></div>
+                <div class="col s3">
+                    <h6>Name</h6></div>
+                <div class="col s3">
+                    <h6>State</h6></div>
+                <div class="col s2">
+                    <h6>City</h6></div>
+                <div class="col s3">
+                    <h6>Performance</h6></div>
+            </div>
+            <form id="store_rows">
+                <div id="4001_store_row" class="row">
+                    <div class="input-field col s1">
+                        <input disabled value="4001" id="4001_store_key" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <input value="Whole Foods" id="4001_store_name" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <select id="4001_store_state">
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option selected value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s2">
+                        <input value="Des Moines" id="4001_store_city" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <p class="range-field">
+                            <input type="range" id="4001_store_performance" min="0" max="100" /> </p>
+                    </div>
+                </div>
+                <div id="4002_store_row" class="row">
+                    <div class="input-field col s1">
+                        <input disabled value="4002" id="4002_store_key" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <input value="Kroger" id="4002_store_name" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <select id="4002_store_state">
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option selected value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District Of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN">Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s2">
+                        <input value="San Francisco" id="4002_store_city" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <p class="range-field">
+                            <input type="range" id="4002_store_performance" min="0" max="100" /> </p>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <br> </div>
+        <div id="promotion_section" class="section">
+            <blockquote>
+                <h4>Promotion Dimension</h4>
+                <p>Enter information about the promotions that you would like to appear in the dataset. Enter the name, type, begin and end dates, as well as how well you would like each to perform relative to other promotions. You will be able to make finer performance adjustments based on the other dimensions below.</p>
+            </blockquote>
+            <div id="promotion_header_row" class="row">
+                <div class="col s1">
+                    <h6>Key</h6></div>
+                <div class="col s3">
+                    <h6>Name</h6></div>
+                <div class="col s2">
+                    <h6>Type</h6></div>
+                <div class="col s2">
+                    <h6>Begin Date</h6></div>
+                <div class="col s2">
+                    <h6>End Date</h6></div>
+                <div class="col s2">
+                    <h6>Performance</h6></div>
+            </div>
+            <form id="promotion_rows">
+                <div id="0_promotion_row" class="row">
+                    <div class="input-field col s1">
+                        <input disabled value="0" id="0_promotion_key" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <input disabled value="None" id="0_promotion_name" type="text" class="validate"> </div>
+                    <div class="input-field col s2">
+                        <select disabled id="0_promotion_type">
+                            <option selected value="None">None</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s2">
+                        <input disabled id="0_promotion_startDate" type="date" class="datepicker"> </div>
+                    <div class="input-field col s2">
+                        <input disabled id="0_promotion_endDate" type="date" class="datepicker"> </div>
+                    <div class="input-field col s2">
+                        <p class="range-field">
+                            <input type="range" id="0_promotion_performance" min="0" max="100" /> </p>
+                    </div>
+                </div>
+                <div id="3001_promotion_row" class="row">
+                    <div class="input-field col s1">
+                        <input disabled value="3001" id="3001_promotion_key" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <input value="Valentine's Day Special" id="3001_promotion_name" type="text" class="validate"> </div>
+                    <div class="input-field col s2">
+                        <select id="3001_promotion_type">
+                            <option selected value="Email">Email</option>
+                            <option value="Online Ad">Online Ad</option>
+                            <option value="Online Ad">In-store</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s2">
+                        <input value="2014-02-01" id="3001_promotion_startDate" type="date" class="datepicker"> </div>
+                    <div class="input-field col s2">
+                        <input value="2014-02-14" id="3001_promotion_endDate" type="date" class="datepicker"> </div>
+                    <div class="input-field col s2">
+                        <p class="range-field">
+                            <input type="range" id="3001_promotion_performance" min="0" max="100" /> </p>
+                    </div>
+                </div>
+                <div id="3002_promotion_row" class="row">
+                    <div class="input-field col s1">
+                        <input disabled value="3002" id="3002_promotion_key" type="text" class="validate"> </div>
+                    <div class="input-field col s3">
+                        <input value="4th of July Bonanza" id="3002_promotion_name" type="text" class="validate"> </div>
+                    <div class="input-field col s2">
+                        <select id="3002_promotion_type">
+                            <option value="Email">Email</option>
+                            <option value="Online Ad">Online Ad</option>
+                            <option selected value="Online Ad">In-store</option>
+                        </select>
+                    </div>
+                    <div class="input-field col s2">
+                        <input value="2016-06-25" id="3002_promotion_startDate" type="date" class="datepicker"> </div>
+                    <div class="input-field col s2">
+                        <input value="2016-07-04" id="3002_promotion_endDate" type="date" class="datepicker"> </div>
+                    <div class="input-field col s2">
+                        <p class="range-field">
+                            <input type="range" id="3002_promotion_performance" min="0" max="100" /> </p>
+                    </div>
+                </div>
+            </form>
+            <br>
+            <br> </div>
+        <div id="sales_fact_section" class="section">
+            <blockquote>
+                <h4>Sales Facts</h4>
+                <p>Enter preferences about your sales facts. The fact table will have a row for each order line item. Measures include Sales Dollars ($) and Sales Units (quantity). They will be randomly generated based on the information you've provided.</p>
+            </blockquote>
+            <div id="sales_fact_header_row" class="row">
+                <div class="col s4">
+                    <h6>Number of Orders</h6></div>
+                <div class="col s4">
+                    <h6>Typical Number of Order Lines (Different Products) Per Order</h6> </div>
+                <div class="col s1">
+                    <h6>&plusmn;</h6></div>
+                <div class="col s3">
+                    <h6>Typical Range of Number of Order Lines Per Order</h6></div>
+            </div>
+            <form id="sales_fact_rows">
+                <div id="sales_fact_row" class="row">
+                    <div class="input-field col s4">
+                        <input value="10000" id="num_orders" type="number" class="validate" min="1"> </div>
+                    <div class="input-field col s4">
+                        <input value="3" id="typical_order_lines_value" type="number" class="validate" min="1"> </div>
+                    <div class="input-field col s1">
+                        <p>&plusmn;</p>
+                    </div>
+                    <div class="input-field col s3">
+                        <input value="3" id="typical_order_lines_range" type="number" class="validate" min="0"> </div>
+                </div>
+            </form>
+            <br>
+            <br> </div>
+        <div class="row center">
+            <form action="#">
+                <p>
+                    <input checked class="with-gap" name="download_option" type="radio" id="file" />
+                    <label for="file">Download all data in one file (CSV)</label>
+                </p>
+                <p>
+                    <input class="with-gap" name="download_option" type="radio" id="zip" />
+                    <label for="zip">Download star schema with tables in seperate files (ZIP folder of CSVs)</label>
+                </p>
+            </form>
+            <br> <a id="generate_dataset_button" class="waves-effect waves-light btn-large">Generate Dataset</a> </div>
+        <footer class="page-footer orange">
+            <div class="footer-copyright">
+                <div class="container"> Made by <a class="orange-text text-lighten-3" href="mailto:sam.ennis@ibm.com">Sam Ennis</a> </div>
+            </div>
+        </footer>
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="static/js/materialize.js"></script>
+        <script src="static/js/papaparse.min.js"></script>
+        <script src="static/js/init.js"></script>
+</body>
+
+</html>
