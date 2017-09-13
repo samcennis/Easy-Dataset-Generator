@@ -1,9 +1,9 @@
 applications:
 - path: .
-  memory: 128M
+  memory: 512M
   instances: 1
   domain: mybluemix.net
   name: easy-dataset-generator
-  host: easy-dataset-generator
+  host: easydataset
   disk_quota: 1024M
   buildpack: python_buildpack

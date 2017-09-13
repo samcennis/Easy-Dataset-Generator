@@ -20,7 +20,10 @@
             <br>
             <h1 class="header center orange-text">Dataset Generator for Demos</h1>
             <div class="row center">
-                <h5 class="header col s12 light">Generate a custom and realistic sales dataset to make your demos more client-centric. The dataset includes a sales fact table with product, store, promotion, and time dimensions. Downloads easily as a CSV file.</h5> </div>
+                <h5 class="header col s12 light">Generate a custom and realistic sales dataset to make your demos more client-centric. The dataset includes a sales fact table with product, store, promotion, and time dimensions. Downloads easily in CSV format.</h5> </div>
+            <div class="row">
+                <div class="col s8 offset-s2"><img width="100%" src="static/img/star-schema.png"></div>
+            </div>
             <br>
             <br> </div>
     </div>
@@ -39,7 +42,7 @@
             <form>
                 <div id="date_row" class="row">
                     <div class="input-field col s6">
-                        <select id="start_date">
+                        <select disabled id="start_date">
                             <option selected value="20140101">2014 Q1</option>
                             <option value="20140401">2014 Q2</option>
                             <option value="20140701">2014 Q3</option>
@@ -54,24 +57,28 @@
                             <option value="20161001">2016 Q4</option>
                             <option value="20170101">2017 Q1</option>
                             <option value="20170401">2017 Q2</option>
+                            <option value="20170701">2017 Q3</option>
+                            <option value="20171001">2017 Q4</option>
                         </select>
                     </div>
                     <div class="input-field col s6">
-                        <select id="end_date">
-                            <option selected value="20140101">2014 Q1</option>
-                            <option value="20140401">2014 Q2</option>
-                            <option value="20140701">2014 Q3</option>
-                            <option value="20141001">2014 Q4</option>
-                            <option value="20150101">2015 Q1</option>
-                            <option value="20150401">2015 Q2</option>
-                            <option value="20150701">2015 Q3</option>
-                            <option value="20151001">2015 Q4</option>
-                            <option value="20160101">2016 Q1</option>
-                            <option value="20160401">2016 Q2</option>
-                            <option value="20160701">2016 Q3</option>
-                            <option value="20161001">2016 Q4</option>
-                            <option value="20170101">2017 Q1</option>
-                            <option selected value="20170401">2017 Q2</option>
+                        <select disabled id="end_date">
+                            <option value="20140331">2014 Q1</option>
+                            <option value="20140630">2014 Q2</option>
+                            <option value="20140930">2014 Q3</option>
+                            <option value="20141231">2014 Q4</option>
+                            <option value="20150331">2015 Q1</option>
+                            <option value="20150630">2015 Q2</option>
+                            <option value="20150930">2015 Q3</option>
+                            <option value="20151231">2015 Q4</option>
+                            <option value="20160331">2016 Q1</option>
+                            <option value="20160630">2016 Q2</option>
+                            <option value="20160930">2016 Q3</option>
+                            <option value="20161231">2016 Q4</option>
+                            <option value="20170331">2017 Q1</option>
+                            <option value="20170630">2017 Q2</option>
+                            <option value="20170930">2017 Q3</option>
+                            <option selected value="20171231">2017 Q4</option>
                         </select>
                     </div>
                 </div>
@@ -177,6 +184,9 @@
                 <h4>Product Dimension</h4>
                 <p>Enter information about all of the products that you would like to appear in the dataset. Enter the name and category of each product, as well as how well you would like each one to sell relative to the other products. You will be able to make finer performance adjustments based on the other dimensions (i.e., performance over time, by store, by promotion) below.</p>
             </blockquote>
+            <div id="product_add_row" class="row">
+                <div class="col s12"> <a id="product_add_btn" class="btn-floating waves-effect waves-light teal lighten-1"><i class="material-icons">add</i></a> <a id="product_remove_btn" class="btn-floating waves-effect waves-light teal lighten-1"><i class="material-icons">remove</i></a></div>
+            </div>
             <div id="product_header_row" class="row">
                 <div class="col s1">
                     <h6>Key</h6></div>
@@ -256,6 +266,9 @@
                 <h4>Store Dimension</h4>
                 <p>Enter information about all of the stores that you would like to appear in the dataset. Enter the name and location of each store, as well as how well you would like each one to sell relative to the other stores. You will be able to make finer performance adjustments based on the other dimensions below.</p>
             </blockquote>
+            <div id="store_add_row" class="row">
+                <div class="col s12"> <a id="store_add_btn" class="btn-floating waves-effect waves-light teal lighten-1"><i class="material-icons">add</i></a> <a id="store_remove_btn" class="btn-floating waves-effect waves-light teal lighten-1"><i class="material-icons">remove</i></a></div>
+            </div>
             <div id="store_header_row" class="row">
                 <div class="col s1">
                     <h6>Key</h6></div>
@@ -411,6 +424,9 @@
                 <h4>Promotion Dimension</h4>
                 <p>Enter information about the promotions that you would like to appear in the dataset. Enter the name, type, begin and end dates, as well as how well you would like each to perform relative to other promotions. You will be able to make finer performance adjustments based on the other dimensions below.</p>
             </blockquote>
+            <div id="promotion_add_row" class="row">
+                <div class="col s12"> <a id="promotion_add_btn" class="btn-floating waves-effect waves-light teal lighten-1"><i class="material-icons">add</i></a> <a id="promotion_remove_btn" class="btn-floating waves-effect waves-light teal lighten-1"><i class="material-icons">remove</i></a></div>
+            </div>
             <div id="promotion_header_row" class="row">
                 <div class="col s1">
                     <h6>Key</h6></div>
@@ -454,7 +470,7 @@
                         <select id="3001_promotion_type">
                             <option selected value="Email">Email</option>
                             <option value="Online Ad">Online Ad</option>
-                            <option value="Online Ad">In-store</option>
+                            <option value="In-store">In-store</option>
                         </select>
                     </div>
                     <div class="input-field col s2">
@@ -475,7 +491,7 @@
                         <select id="3002_promotion_type">
                             <option value="Email">Email</option>
                             <option value="Online Ad">Online Ad</option>
-                            <option selected value="Online Ad">In-store</option>
+                            <option selected value="In-store">In-store</option>
                         </select>
                     </div>
                     <div class="input-field col s2">
@@ -488,6 +504,78 @@
                     </div>
                 </div>
             </form>
+            <br>
+            <br> </div>
+        <div id="fine_grain_section" class="section">
+            <blockquote>
+                <h4>Fine-Grain Performance Adjustments</h4>
+                <p>Here you can adjust the performance of particular combinations of a product, store, promotion, and date.</p>
+            </blockquote>
+            <div id="fine_grain_header_row" class="row">
+                <div class="col s2">
+                    <h6>Date</h6></div>
+                <div class="col s2">
+                    <h6>Product</h6></div>
+                <div class="col s2">
+                    <h6>Store</h6></div>
+                <div class="col s2">
+                    <h6>Promotion</h6></div>
+                <div class="col s4">
+                    <h6>Performance</h6></div>
+            </div>
+            <div id="fine_grain_row" class="row">
+                <div class="input-field col s2">
+                    <select id="fine_grain_date">
+                        <option selected value="all">All</option>
+                        <option value="20140101">2014 Q1</option>
+                        <option value="20140401">2014 Q2</option>
+                        <option value="20140701">2014 Q3</option>
+                        <option value="20141001">2014 Q4</option>
+                        <option value="20150101">2015 Q1</option>
+                        <option value="20150401">2015 Q2</option>
+                        <option value="20150701">2015 Q3</option>
+                        <option value="20151001">2015 Q4</option>
+                        <option value="20160101">2016 Q1</option>
+                        <option value="20160401">2016 Q2</option>
+                        <option value="20160701">2016 Q3</option>
+                        <option value="20161001">2016 Q4</option>
+                        <option value="20170101">2017 Q1</option>
+                        <option value="20170401">2017 Q2</option>
+                        <option value="20170701">2017 Q3</option>
+                        <option value="20171001">2017 Q4</option>
+                    </select>
+                </div>
+                <div class="input-field col s2">
+                    <select id="fine_grain_product">
+                        <option selected value="all">All</option>
+                        <option value="1001">1001</option>
+                        <option value="1002">1002</option>
+                        <option value="1003">1003</option>
+                    </select>
+                </div>
+                <div class="input-field col s2">
+                    <select id="fine_grain_store">
+                        <option selected value="all">All</option>
+                        <option value="4001">4001</option>
+                        <option value="4002">4002</option>
+                        <option value="4003">4003</option>
+                    </select>
+                </div>
+                <div class="input-field col s2">
+                    <select id="fine_grain_promotion">
+                        <option selected value="all">All</option>
+                        <option value="0">0</option>
+                        <option value="3001">3001</option>
+                        <option value="3002">3002</option>
+                    </select>
+                </div>
+                <div class="input-field col s3">
+                    <p class="range-field">
+                        <input type="range" id="fine_grain_performance" min="0" max="100" /> </p>
+                </div>
+                <div class="input-field col s1"> <a id="fine_grain_add_button" class="waves-effect waves-light btn-large">Add</a> </div>
+            </div>
+            <div id="fine_grain_rows"></div>
             <br>
             <br> </div>
         <div id="sales_fact_section" class="section">
@@ -523,25 +611,33 @@
         <div class="row center">
             <form action="#">
                 <p>
-                    <input checked class="with-gap" name="download_option" type="radio" id="file" />
-                    <label for="file">Download all data in one file (CSV)</label>
+                    <input checked class="with-gap" name="download_option" type="radio" id="download_as_file" />
+                    <label for="download_as_file">Download all data in one file (CSV)</label>
                 </p>
                 <p>
-                    <input class="with-gap" name="download_option" type="radio" id="zip" />
-                    <label for="zip">Download star schema with tables in seperate files (ZIP folder of CSVs)</label>
+                    <input class="with-gap" name="download_option" type="radio" id="download_as_zip" />
+                    <label for="download_as_zip">Download star schema with tables as five seperate files (CSVs)</label>
                 </p>
             </form>
-            <br> <a id="generate_dataset_button" class="waves-effect waves-light btn-large">Generate Dataset</a> </div>
-        <footer class="page-footer orange">
-            <div class="footer-copyright">
-                <div class="container"> Made by <a class="orange-text text-lighten-3" href="mailto:sam.ennis@ibm.com">Sam Ennis</a> </div>
+            <br> <a id="generate_dataset_button" class="waves-effect waves-light btn-large">Generate Dataset</a>
+            <div id="loader" style="display:none;">
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+                <p><i>Please wait... Generating your dataset... This can take up to a minute or two...</i></p>
             </div>
-        </footer>
-        <!--  Scripts-->
-        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-        <script src="static/js/materialize.js"></script>
-        <script src="static/js/papaparse.min.js"></script>
-        <script src="static/js/init.js"></script>
+        </div>
+    </div>
+    <footer class="page-footer orange">
+        <div class="footer-copyright">
+            <div class="container"> Made by <a class="orange-text text-lighten-3" href="mailto:sam.ennis@ibm.com">Sam Ennis</a> </div>
+        </div>
+    </footer>
+    <!--  Scripts-->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="static/js/materialize.js"></script>
+    <script src="static/js/papaparse.min.js"></script>
+    <script src="static/js/init.js"></script>
 </body>
 
 </html>
